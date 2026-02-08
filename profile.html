@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN+Guides&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <span class="logo-text">Bookstore</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="#" id="logoutBtn">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="library-wrapper">
+  <div class="library-card">
+
+    <div class="card-header">
+      <span class="library-name">Metropolitan Library</span>
+      <span class="card-type">Member Card</span>
+    </div>
+
+    <div class="card-body">
+    <div class="card-photo">
+    <img src="" alt="Profile" id="profileImage" style="cursor:pointer">
+    <input type="file" id="imageUpload" accept="image/*" style="display:none">
+   </div>
+
+
+      <div class="card-info">
+        <!-- Name -->
+        <div class="name-fields">
+          <div class="name-field" data-label="First name">
+            <input type="text" class="editable-field" placeholder="First name" readonly data-field="first_name">
+          </div>
+          <div class="name-field" data-label="Last name">
+            <input type="text" class="editable-field" placeholder="Last name" readonly data-field="last_name">
+          </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="bio-field">
+          <textarea class="editable-field" placeholder="Bio..." readonly data-field="bio"></textarea>
+        </div>
+
+        <!-- Other info -->
+        <div class="other-fields">
+          <div class="other-field" data-label="Phone">
+            <input type="text" class="editable-field" placeholder="Phone" readonly data-field="phone">
+          </div>
+          <div class="other-field" data-label="Address">
+            <input type="text" class="editable-field" placeholder="Address" readonly data-field="address">
+          </div>
+          <div class="other-field" data-label="Member ID">
+            <p id="profileId">#000000</p>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end card-body -->
+
+    <div class="card-footer">
+      <button class="edit-btn" id="saveProfile">Edit Profile</button>
+      <span class="issued">Issued · 2026</span>
+    </div>
+
+  </div>
+</section>
+
+<script src="/profile.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shop | Book Haven</title>
+
+  <link rel="stylesheet" href="shop.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">Book Haven</div>
+  <nav>
+    <ul>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><button onclick="openOrders()" class="nav-link">Track Order</button></li>
+      <li><a onclick="toggleCart()" class="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Your Cozy Bookstore</span>
+    <h1>
+      Stories That <br>
+      Stay With You
+    </h1>
+    <p>
+      Carefully chosen books for quiet nights, loud thoughts,
+      and unforgettable worlds.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#shop" class="btn primary">Browse Books</a>
+      <a href="#featured" class="btn secondary">Our Picks</a>
+    </div>
+  </div>
+
+  <div class="hero-books">
+    <img src="/img/nbook7.jpg" alt="Book 1" class="book book-1">
+    <img src="/img/nbook9.jpg" alt="Book 2" class="book book-2">
+    <img src="/img/nbook12.jpg" alt="Book 3" class="book book-3">
+    <img src="/img/nbook4.jpg" alt="Book 4" class="book book-4">
+  </div>
+</section>
+
+
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <button onclick="filterBooks('all')" class="active">All</button>
+  <button onclick="filterBooks('fantasy')">Fantasy</button>
+  <button onclick="filterBooks('romance')">Romance</button>
+  <button onclick="filterBooks('mystery')">Mystery</button>
+  <button onclick="filterBooks('non-fiction')">Non-Fiction</button>
+</section>
+
+<!-- SHOP -->
+<section class="shop" id="shop"></section>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cart">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <span class="close-cart" onclick="toggleCart()">✕</span>
+  </div>
+
+  <div id="cart-items"></div>
+  <p class="cart-total">Total: $<span id="cart-total">0</span></p>
+  <button class="btn-dark">Checkout</button>
+</div>
+
+<script src="shop.js"></script>
+<div class="order-modal" id="orderModal">
+  <div class="order-modal-content">
+    <div class="order-modal-header">
+      <h3>Your Orders</h3>
+      <span onclick="closeOrders()">✕</span>
+    </div>
+
+    <div id="ordersContainer">
+      <p>Loading your orders...</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BookStore | Register</title>
+  <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+
+<div class="auth-container">
+
+<div class="auth-left">
+<div class="auth-left">
+  <h1>Join the <span>Adventure!</span></h1>
+  <p>Create your account and start your journey through books.</p>
+
+  <p class="tagline">Unlock thousands of stories, from timeless classics to the latest releases.</p>
+  <p class="tagline">Track your reading, leave reviews, and share your favorite moments.</p>
+
+  <div class="action-buttons">
+    <button class="explore-btn">Browse Popular Books</button>
+  </div>
+</div>
+
+</div>
+
+  <div class="auth-card">
+    <h2>Create Account</h2>
+
+<input type="text" id="name" placeholder="Name">
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<input type="password" id="password_confirmation" placeholder="Confirm Password">
+<button onclick="registerUser()">Register</button>
+
+    <p class="switch">
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+  </div>
+<script>
+async function registerUser() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const password_confirmation = document.getElementById('password_confirmation').value;
+
+    try {
+        const response = await fetch('http://127.0.0.1:8000/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ name, email, password, password_confirmation })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            window.location.href = 'shop.html';
+        } else {
+            if (data.errors) {
+                let messages = [];
+                for (const key in data.errors) {
+                    messages.push(data.errors[key].join(' '));
+                }
+                alert(messages.join('\n'));
+            } else {
+                alert(data.message || 'Registration failed');
+            }
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Something went wrong . Please try again later.');
+    }
+}
+</script>
+
+</div>
+
+</body>
+</html>

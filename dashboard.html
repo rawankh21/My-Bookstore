@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | Bookly</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<script>
+const role = localStorage.getItem('user_role');
+
+if (role !== 'admin') {
+    window.location.href = 'login.html';
+}
+</script>
+
+<div class="dashboard">
+
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h1 class="logo">Admin Bookly</h1>
+
+    <nav>
+      <button class="nav-btn active" data-section="overview">Overview</button>
+      <button class="nav-btn" data-section="orders">Orders</button>
+      <button class="nav-btn" data-section="books">Books</button>
+
+      <button class="logout">Logout</button>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div>
+        <h1>Admin Dashboard</h1>
+        <p>Manage your bookstore effortlessly</p>
+      </div>
+
+
+    </header>
+
+    <!-- OVERVIEW -->
+    <section id="overview" class="section active">
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-book"></i></div>
+          <div class="stat-content">
+            <h4>Total Books</h4>
+            <p>0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+          <div class="stat-content">
+            <h4>Total Orders</h4>
+            <p>0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-content">
+            <h4>Total Users</h4>
+            <p id="totalUsers">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4>Monthly Orders</h4>
+          </div>
+          <div class="chart-container">
+            <canvas id="ordersChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4>Books by Category</h4>
+
+          </div>
+          <div class="chart-container">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ORDERS -->
+    <section id="orders" class="section">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1021</td>
+            <td>Rawan</td>
+            <td>$45</td>
+            <td>
+              <select>
+                <option>Pending</option>
+                <option>Processing</option>
+                <option>Shipped</option>
+                <option>Completed</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+<!-- BOOKS -->
+<section id="books" class="section">
+  <!-- Form to add a book -->
+  <div class="form">
+    <input type="text" placeholder="Title">
+    <input type="text" placeholder="Category">
+    <input type="number" placeholder="Price">
+    <input type="number" placeholder="Stock">
+    <input type="file" accept="image/*" id="coverFile" style="display: none;">
+    <label for="coverFile" class="file-label">Choose Image</label>
+    <button id="addBookBtn">Add Book</button>
+  </div>
+
+  <!-- Table to display existing books -->
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Cover</th>
+      </tr>
+    </thead>
+    <tbody id="booksTableBody">
+
+    </tbody>
+  </table>
+</section>
+
+    <!-- CATEGORIES -->
+    <section id="categories" class="section">
+      <div class="form">
+        <input type="text" placeholder="Category name">
+        <button>Add Category</button>
+      </div>
+
+      <ul class="list">
+        <li>Fantasy</li>
+        <li>Classics</li>
+        <li>Romance</li>
+      </ul>
+    </section>
+
+  </main>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

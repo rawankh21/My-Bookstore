@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:  linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+    url('img/bg1.png');
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+}
+
+/* Explore button */
+.explore-btn {
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 60%;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background: #1f2937;            /* slightly lighter navy */
+  transform: translateY(-3px);    /* pops up */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* subtle shadow */
+}
+
+/* General buttons */
+button {
+  width: 100%;
+  padding: 14px;
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #1f2937;             /* slight color lift */
+  transform: translateY(-2px);     /* subtle lift */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Optional: for secondary buttons like guest button */
+.guest-btn {
+  padding: 12px 25px;
+  background: transparent;
+  color: #111827;
+  border: 1px solid #111827;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.guest-btn:hover {
+  background: #111827;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+.auth-left{
+  margin-left: 40px;
+}
+.auth-container {
+  width: 90%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+
+.auth-left h1 {
+  font-size: 52px;
+  color: #111827;
+}
+
+.auth-left span {
+  color: #8c7667;
+}
+
+.auth-left p {
+  margin-top: 20px;
+  color: #000000;
+  max-width: 400px;
+}
+
+.auth-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.switch {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.switch a {
+  color: #111827;
+  font-weight: 500;
+  text-decoration: none;
+}
+.admin-btn {
+  margin-top: 10px;
+  background: transparent;
+  color: #111827;
+  border: 1px solid #111827;
+}
+.admin-btn:hover {
+  background: #111827;
+  color: white;
+}
